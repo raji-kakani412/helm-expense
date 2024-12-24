@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: expense
+  labels: # these are replicaset labels
+    app: mysql
+    tier: db
+    project: expense
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: mysql
+      tier: db
+      project: expense
+  template:
+    metadata:
+      labels:
+        app: mysql
+        tier: db      
+        project: expense
+    spec:
+      containers:
+      - name: mysql
+        image: rajikakani412/mysql:{{ .Values.deployment.version }}
+
+---
+apiVersion: v1
+kind: Service # this creates ClusterIP service
+metadata:
+  namespace: expense
+  name: mysql
+  
+spec:
+  selector:
+   app: mysql
+   tier: db
+   project: expense
+  ports:
+  - name: mysql-port
+    protocol: TCP
+    port: 3306 # this is service port
+    targetport: 3306 # this is container port. 

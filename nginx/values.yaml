@@ -1,0 +1,7 @@
+deployment:
+  imageversion: latest
+  replicas: 2
+service:
+  port: 80
+  targetport: 80
+  type: LoadBalancer

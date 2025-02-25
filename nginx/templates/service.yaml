@@ -10,5 +10,5 @@ spec:
   ports:
   - name: nginx-svc-port
     protocol: tcp
-    port: {{ .Values.service.port }}# #this is service port
-    targetport: {{ .Values.service.targetport }} # this is container port. we can also give name and provide value in pod definition
+    port: {{ .Values.service.port }} #this is service port
+    targetPort: {{ .Values.service.targetPort }} # this is container port. we can also give name and provide value in pod definition

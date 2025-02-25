@@ -1,5 +1,5 @@
 deployment:
-  #version: v1
+  imageVersion: v1
   replicas: 2
 hpa:
   targetcpuutil: 15

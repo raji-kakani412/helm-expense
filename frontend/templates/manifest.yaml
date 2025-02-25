@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: rajikakani412/frontend:{{ .Values.deployment.imageVersion }}
+        image: rajikakani412/frontend:v2
         resources:
           requests:
             cpu: 100m
